@@ -129,6 +129,7 @@ end
 
 
 def players
+<<<<<<< HEAD
   game_hash[:home][:players] + (game_hash[:away][:players])
 end 
 
@@ -175,6 +176,7 @@ def player_stats(player_name)
   find_player_by_name(player_name)
 end 
 
+<<<<<<< HEAD
 # def stat_reducer(stat)
 #   player = players.reduce do |baller, current_player|
 #     if baller[stat] < current_player[stat]
@@ -187,6 +189,68 @@ end
 # end 
 
 # stat_reducer(:points)
+=======
+# player_stats("Kemba Walker")
+=======
+  list = game_hash[:home][:players] + (game_hash[:away][:players])
+  list.each do |player|
+  end
+end 
+
+def num_points_scored(player_name)
+  players.each do |player|
+    player.each do |key, value|
+      if player_name == value 
+        return player[:points]
+      end
+    end
+ end
+end 
+
+def shoe_size(player_name)
+  players.each do |player|
+    player.each do |key, value|
+      if player_name == value 
+        return player[:shoe]
+      end
+    end 
+  end 
+end 
+
+def team_colors(team_name)
+  if team_name == game_hash[:home][:team_name]
+    return game_hash[:home][:colors]
+  elsif team_name == game_hash[:away][:team_name]
+    return game_hash[:away][:colors]
+  end 
+end 
+
+
+def team_names
+  [game_hash[:home][:team_name], game_hash[:away][:team_name]]
+end 
+
+def player_numbers(team_name)
+  numbers = []
+  game_hash.each do |team, data|
+    if data[:team_name] == team_name
+      data[:players].each do |player|
+        numbers << player[:number]
+      end
+    end 
+  end 
+  numbers 
+end 
+
+def player_stats(player_name)
+  players.each do |player|
+    if player[:player_name] == player_name
+      return player 
+    end 
+  end 
+end
+>>>>>>> bd0fdd01bf37d423dd061a7bd568637ebf23d747
+>>>>>>> ac0feb25dada12dc70a7bba994be40094f98b742
 
 def big_shoe_rebounds
   player = players.reduce do |big_shoe_player, current_player|
@@ -212,6 +276,7 @@ end
 # end 
 
 
+<<<<<<< HEAD
 # def players
 #   list = game_hash[:home][:players] + (game_hash[:away][:players])
 # end 
@@ -307,13 +372,45 @@ end
 #   end 
 #   total
 # end 
+=======
+# ============== #
+
+def most_points_scored
+  most_points = 0 
+  star = ""
+  players.each do |player|
+    if player[:points] > most_points 
+      star = player[:player_name]
+    end
+  end   
+  star
+end 
+
+
+def home_score
+  total = 0 
+  game_hash[:home][:players].each do |key,value|
+    binding.pry
+    if key == :points
+      total += value 
+    end 
+  end 
+  total
+end 
+>>>>>>> bd0fdd01bf37d423dd061a7bd568637ebf23d747
 
 
 
 
+<<<<<<< HEAD
 # def winning_team
   
 # end 
+=======
+def winning_team
+  
+end 
+>>>>>>> bd0fdd01bf37d423dd061a7bd568637ebf23d747
 
 
 
